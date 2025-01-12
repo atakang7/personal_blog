@@ -21,7 +21,7 @@ export default function ProfileBanner() {
           alt="Atakan Gül's Profile Picture" 
           className="profile-img-custom"
           loading="lazy"
-        />
+        /> 
       </div>
     </div>
   );
