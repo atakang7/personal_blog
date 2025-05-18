@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ThumbsUp, MessageCircle, Eye } from 'lucide-react';
+import { ThumbsUp, MessageCircle } from 'lucide-react';
 
 const BlogFooter = ({ blog }) => {
   const [likes, setLikes] = useState(blog?.likes || 0);
@@ -68,13 +68,6 @@ const BlogFooter = ({ blog }) => {
           <MessageCircle className="w-5 h-5 text-gray-400 mb-1.5" />
           <span className="text-sm text-gray-500">
             {blog?.comments?.length || 0}
-          </span>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <Eye className="w-5 h-5 text-gray-400 mb-1.5" />
-          <span className="text-sm text-gray-500">
-            {blog?.views || 0}
           </span>
         </div>
       </div>

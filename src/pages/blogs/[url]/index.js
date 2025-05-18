@@ -5,15 +5,17 @@ import CommentSection from "@/components/blog/CommentSection";
 import RecommendedBlogs from "@/components/blog/RecommendedBlogs";
 import { useRouter } from 'next/router';
 
+import { marked } from 'marked';
+import createDOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
+
 export default function BlogPage({ blog }) {
   const router = useRouter();
 
-  // Handle the loading state
   if (router.isFallback) {
     return <div className="container-fluid py-5 text-center">Loading...</div>;
   }
 
-  // Handle missing blog data
   if (!blog) return null;
 
   const canonicalUrl = `https://www.atakangul.com/blogs/${blog?.url}`;
@@ -24,24 +26,20 @@ export default function BlogPage({ blog }) {
         <title>{`${blog?.title} | Atakan Gül Blog | Technology Insights`}</title>
         <meta name="description" content={blog?.description} />
         <meta name="keywords" content={`${blog?.search_keywords}, Atakan Gül`} />
-        
-        {/* Open Graph tags */}
+
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`${blog?.title} | Atakan Gül | Latest Tech Articles and Insights`} />
         <meta property="og:description" content={blog?.description} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={blog?.imageURL || '/img/favicon.ico'} />
-        
-        {/* Twitter Card tags */}
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={blog?.title} />
         <meta name="twitter:description" content={blog?.description} />
         <meta name="twitter:image" content={blog?.imageURL || '/img/favicon.ico'} />
-        
-        {/* Canonical URL */}
+
         <link rel="canonical" href={canonicalUrl} />
-        
-        {/* Schema.org markup for Google */}
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -56,15 +54,12 @@ export default function BlogPage({ blog }) {
             }
           })}
         </script>
-
       </Head>
 
-      <div className="container-fluid mx-auto " style={{ maxWidth: '800px' }}>
+      <div className="container-fluid mx-auto" style={{ maxWidth: '800px' }}>
         <article>
           <div className="row mt-3">
-            <BlogContent 
-              content={blog?.content}
-            />
+            <BlogContent content={blog?.content} />
 
             <div className="blog-footer">
               <BlogFooter blog={blog} />
@@ -90,6 +85,7 @@ export async function getStaticPaths() {
     const res = await fetch('https://atakangul.com/api/blogs');
     const data = await res.json();
     const blogs = data?.blogs;
+
     return {
       paths: blogs.map((blog) => ({
         params: { url: blog?.url },
@@ -104,16 +100,21 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const blogData = await fetch(`https://atakangul.com/api/blogs/${params.url}`);
+    const blogData = (await fetch(`https://atakangul.com/api/blogs/${params.url}`));
     const data = await blogData.json();
     const blog = data?.blog;
+    console.log('[RAW] blog.content (raw markdown)', blog.content);
 
     if (!blog) {
-      return {
-        notFound: true,
-        revalidate: 60
-      };
+      return { notFound: true, revalidate: 60 };
     }
+
+    // Markdown -> sanitized HTML
+    const window = new JSDOM('').window;
+    const DOMPurify = createDOMPurify(window);
+    const decodedMarkdown = blog.content.replace(/\\n/g, '\n');
+    const dirtyHtml = marked.parse(decodedMarkdown);
+    const safeHtml = DOMPurify.sanitize(dirtyHtml);
 
     const serializeDates = (obj) => {
       const newObj = { ...obj };
@@ -126,38 +127,24 @@ export async function getStaticProps({ params }) {
       }
       return newObj;
     };
-
-    let parsedContent = blog.content;
-    try {
-      if (typeof blog.content === 'string') {
-        parsedContent = blog.content;
-      }
-    } catch (e) {
-      console.error('Error parsing blog content:', e);
-      parsedContent = blog.content;
-    }
-
-    const serializedBlog = serializeDates({
-      ...blog,
-      content: parsedContent,
+    const cleanBlog = {
+      ...serializeDates(blog),
+      content: safeHtml,
       _id: blog._id.toString(),
       comments: blog.comments.map(comment => ({
         ...comment,
         _id: comment._id.toString()
       }))
-    });
+    };
+    console.log('[DEBUG] Final content:', safeHtml.slice(0, 200));
+    console.log('[DEBUG] blog.content before send:', cleanBlog.content.slice(0, 200));
 
-    return {
-      props: {
-        blog: serializedBlog
-      },
-      revalidate: 3600
-    };
+  return {
+    props: { blog: cleanBlog },
+    revalidate: 3600
+  };
   } catch (error) {
-    console.error('Error fetching blog:', error);
-    return {
-      notFound: true,
-      revalidate: 60
-    };
+    console.error('Error in getStaticProps:', error);
+    return { notFound: true, revalidate: 60 };
   }
 }

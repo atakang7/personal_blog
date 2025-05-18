@@ -31,6 +31,19 @@ export default function Home({ blogs }) {
           {/* Sidebar */}
           <aside className="w-full lg:w-72 mt-4">
             <div className="space-y-6">
+              {/* Musics */}
+              <div className="border border-gray-200 ">
+                <div className="px-4 py-2 border-b border-gray-200">
+                  <h2 className="text-xs font-medium text-gray-900">
+                    Listening...
+                  </h2>
+                </div>
+                <div>
+                  <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                  <div class="elfsight-app-fea6032e-02b4-44dc-aa84-eb5b1b418c35" data-elfsight-app-lazy></div>
+                </div>
+              </div>
+
               {/* Certifications */}
               <div className="border border-gray-200 ">
                 <div className="px-4 py-2 border-b border-gray-200">
@@ -58,7 +71,8 @@ export default function Home({ blogs }) {
                   ))}
                 </div>
               </div>
-            </div>
+
+            </div>  
           </aside>
         </div>
       </div>
