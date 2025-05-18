@@ -9,7 +9,7 @@ export const NavigationItem = ({ icon: Icon, title, href, isExternal }) => {
     <div className="flex items-center gap-2 px-2 sm:px-3 py-1.5 text-gray-900 border bg-white hover:bg-gray-100 whitespace-nowrap">
       <Icon className="w-4 h-4 sm:w-4 sm:h-4" />
       <span className="text-xs sm:text-sm hidden sm:inline">{title}</span>
-      <span className="text-xs inline sm:hidden">{title.slice(0, 3)}</span>
+      <span className="text-xs inline sm:hidden">{title}</span>
     </div>
   );
 
