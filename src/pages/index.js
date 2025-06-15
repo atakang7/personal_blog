@@ -40,7 +40,7 @@ export default function Home({ blogs }) {
                 </div>
                 <div>
                   <script src="https://static.elfsight.com/platform/platform.js" async></script>
-                  <div class="elfsight-app-fea6032e-02b4-44dc-aa84-eb5b1b418c35" data-elfsight-app-lazy></div>
+                  <div className="elfsight-app-fea6032e-02b4-44dc-aa84-eb5b1b418c35" data-elfsight-app-lazy></div>
                 </div>
               </div>
 

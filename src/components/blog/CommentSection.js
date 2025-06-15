@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
 import { MessageSquare } from 'lucide-react';
 
 const CommentSection = ({ postId }) => {
@@ -8,7 +7,6 @@ const CommentSection = ({ postId }) => {
   const [commentText, setCommentText] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { data: session } = useSession();
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -36,11 +34,6 @@ const CommentSection = ({ postId }) => {
   };
 
   const handleComment = async () => {
-    if (!session) {
-      showNotification("Please login to comment!");
-      return;
-    }
-
     if (!commentText.trim()) {
       showNotification("Comment cannot be empty!");
       return;
@@ -53,8 +46,8 @@ const CommentSection = ({ postId }) => {
         body: JSON.stringify({
           content: commentText,
           postId,
-          author: session.user.id,
-          authorName: session.user.name
+          author: "session.user.id",
+          authorName: "Atakan"
         })
       });
 
@@ -100,8 +93,8 @@ const CommentSection = ({ postId }) => {
         <textarea 
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
-          placeholder={session ? "Share your thoughts..." : "Please sign in to comment"}
-          disabled={!session}
+          placeholder={false ? "Share your thoughts..." : "Please sign in to comment"}
+          disabled={true}
           className="w-full min-h-[120px] px-4 py-3 text-gray-700 bg-gray-50 
                    rounded-xl resize-none outline-none transition-all
                    placeholder:text-gray-400 disabled:opacity-60
@@ -110,7 +103,7 @@ const CommentSection = ({ postId }) => {
         <div className="mt-3 flex justify-end">
           <button 
             onClick={handleComment}
-            disabled={!session || !commentText.trim()}
+            disabled={!commentText.trim()}
             className="px-5 py-2 text-sm font-medium rounded-full 
                      transition-colors duration-200
                      disabled:opacity-50 disabled:cursor-not-allowed

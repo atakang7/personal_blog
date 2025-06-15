@@ -1,16 +1,8 @@
 // src/pages/api/users/subscribe.js
 import {subscribeToNewsletter} from '@/lib/email';
-import { getServerSession } from 'next-auth';
 
 export default async function handler(req, res) {
  try {
-   const session = await getServerSession(req);
-   if (!session) {
-     return res.status(401).json({
-       success: false,
-       message: 'Authentication required'
-     });
-   }
 
    const { email } = req.body;
    

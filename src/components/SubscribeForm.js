@@ -1,10 +1,8 @@
 'use client';
 import { useState } from 'react';
-import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 
 export default function SubscribeForm() {
-  const { data: session, status } = useSession();
   const [turnstileToken, setTurnstileToken] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState(null);
@@ -89,8 +87,8 @@ export default function SubscribeForm() {
           ) : (
             <input 
               type="email" 
-              placeholder={session?.user?.email || 'You look new :)'} 
-              defaultValue={session?.user?.email || ''} 
+              placeholder={'You look new :)'} 
+              defaultValue={''} 
               name="email" 
               id="email" 
               style={{ width: '17rem', border: 'none', padding: '10px' }} 

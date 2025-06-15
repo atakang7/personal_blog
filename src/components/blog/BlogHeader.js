@@ -1,6 +1,5 @@
 import React from 'react';
 import { BadgeCheck } from 'lucide-react';
-import Link from 'next/link';
 
 const BlogHeader = ({ blog }) => {
   return (
@@ -9,7 +8,7 @@ const BlogHeader = ({ blog }) => {
       <div className="flex items-center gap-6">
         {/* Left side - Avatar */}
         <img 
-          src={blog?.authorMetadata.avatarURL || '/img/avatar.webp'} 
+          src={blog?.authorMetadata.avatarURL} 
           alt={`${blog?.authorMetadata.name}`}
           className="w-20 h-20 rounded-full object-cover shadow-md ring-2 ring-gray-100"
         />

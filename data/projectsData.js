@@ -95,7 +95,7 @@ export const projects = [
         "https://res.cloudinary.com/doe1ofeco/image/upload/v1730859898/uqwk4ypku3ommun2le8h.png",
       ],
       projectUrl:
-        "https://atakangul.com/blogs/logwatcher-simplifying-docker-image-monitoring-with-open-source-software",
+        "https://atakangul.com/blogs/logwatcher",
       tags: ["grafana", "prometheus", "monitoring", "system-monitoring"],
     },
     {
