@@ -4,7 +4,7 @@ import { getModel } from '@/lib/mongodb';
 
 const userSchema = new mongoose.Schema({
   email: { type: String, lowercase: true, required: true },
-  imageURL: { type: String, default: '/img/avatar.webp' },
+  imageURL: { type: String },
   isSubscribed: { type: Boolean, required: false, default: false },
   googleId: { type: String },
   name: { type: String, default: 'Guest' },

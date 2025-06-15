@@ -34,7 +34,7 @@ export default function BlogPage({ router, blog }) {
         {/* Author Info */}
         <div className="flex items-center gap-4 mb-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
           <img 
-            src={blog.authorMetadata.avatarURL || '/img/avatar.webp'} 
+            src={blog.authorMetadata.avatarURL} 
             alt={blog.authorMetadata.name}
             className="w-16 h-16 rounded-full object-cover"
           />

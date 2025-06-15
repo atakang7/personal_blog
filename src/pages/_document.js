@@ -39,7 +39,6 @@ export default function Document() {
       <Head>
         {/* Primary Meta Tags */}
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="description" content="Atakan Gül - Software engineer from Istanbul specializing in DevOps and Kubernetes. Top 0.3% in national university entrance exam. Expert in container orchestration and software development." />
         <meta name="keywords" content="Atakan Gül, Software Engineer, DevOps, Kubernetes, Istanbul, Container Orchestration, Technical Blog" />

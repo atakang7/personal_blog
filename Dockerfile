@@ -22,6 +22,7 @@ ENV NEXT_LINT=false
 
 # Build the application
 RUN npm run build
+RUN npm prune --production
 
 # Stage 3: Runner
 FROM node:23-alpine AS runner
