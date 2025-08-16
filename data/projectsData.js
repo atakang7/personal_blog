@@ -2,40 +2,17 @@
 
 export const projects = [
     {
-      _id: "6717b47213ea77ffb4f05e1e",
-      title: "ProjectPulse",
+      _id: "6723c506dc3c48d9615a979c",
+      title: "Linux Diagnostic Agent",
       description:
-        "Have you ever made something cool and wanted to share it? That's why we created ProjectPulse! We're a friendly place where people who love coding can share their work and meet others who build interesting things too.",
+        "A system monitoring and log analysis tool that provides real-time system insights through a modern web interface.",
       images: [
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729606813/atukr2veq56kanoepubg.png",
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729606856/wqd0prlx9pqhhjhpmpqc.png",
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729606907/i7zdcqqqerucdvnluc1q.png",
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1730860132/gf5pm4zasgclv1bummws.png",
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1730860146/o4qgxtqr0ggwncnzrk10.png",
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1730860161/bsjs8mmc8yvtzevdnoau.png",
       ],
-      projectUrl: "https://sprojects.live/",
-      tags: ["project showcase", "project management"],
-    },
-    {
-      _id: "6717b47213ea77ffb4f05e20",
-      title: "ideaLog",
-      description:
-        "A Node.js based blog platform focusing on simplicity and functionality.",
-      images: [
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729607342/nvjjr5uqkka4peawpgz3.png",
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729607365/sqfmph0aijacpe0jwzhy.png",
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729607445/bqvoi7fpreg0rjutdlji.png",
-      ],
-      projectUrl: "https://atakangul.com",
-      tags: [
-        "blog",
-        "nodejs",
-        "express",
-        "ejs-templates",
-        "mongo",
-        "telegram",
-        "redis",
-        "openai",
-        "pixebay",
-      ],
+      projectUrl: "https://github.com/AtakanG7/linux-diagnostic-agent",
+      tags: ["go", "linux", "system-monitoring", "websocket"],
     },
     {
       _id: "6717b47213ea77ffb4f05e23",
@@ -50,31 +27,10 @@ export const projects = [
       projectUrl: "https://github.com/AtakanG7/azure-devops-ci-cd",
       tags: ["azure", "devops", "ci/cd", "blue-green deployment"],
     },
-    {
-      _id: "6717b47213ea77ffb4f05e25",
-      title: "ChatVerse",
-      description:
-        "Real-time topic-based chat platform built with modern web technologies, enabling users to join and participate in topic-specific chat rooms.",
-      images: [
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729609821/mq2xqo6q5akgjmlmxyuc.png",
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729609892/snp6ubye93idyr5t8zfk.png",
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729609933/rrd1vcn60j36xgkd04fv.png",
-      ],
-      projectUrl: "https://chat.atakangul.com/",
-      tags: [
-        "javascript",
-        "nodejs",
-        "react",
-        "typescript",
-        "websocket",
-        "ssr",
-        "mvc-architecture",
-        "tailwind",
-      ],
-    },
+
     {
       _id: "6717b47213ea77ffb4f05e27",
-      title: "KubernetesInfra",
+      title: "Cloud-Agnostic Infrastructure",
       description:
         "Infrastructure as Code implementation for cloud-agnostic Kubernetes deployment using Terraform and Helm.",
       images: [
@@ -142,19 +98,7 @@ export const projects = [
         "sentiment-analysis",
       ],
     },
-    {
-      _id: "6723c506dc3c48d9615a979c",
-      title: "Linux Diagnostic Agent",
-      description:
-        "A system monitoring and log analysis tool that provides real-time system insights through a modern web interface.",
-      images: [
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1730860132/gf5pm4zasgclv1bummws.png",
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1730860146/o4qgxtqr0ggwncnzrk10.png",
-        "https://res.cloudinary.com/doe1ofeco/image/upload/v1730860161/bsjs8mmc8yvtzevdnoau.png",
-      ],
-      projectUrl: "https://github.com/AtakanG7/linux-diagnostic-agent",
-      tags: ["go", "linux", "system-monitoring", "websocket"],
-    },
+
     {
       _id: "676c489e866984527df7b78e",
       title: "Log Masking Client",
@@ -162,5 +106,63 @@ export const projects = [
       images: [],
       projectUrl: "https://github.com/AtakanG7/log-masking-client",
       tags: ["react", "frontend"],
+    },
+        {
+      _id: "6717b47213ea77ffb4f05e1e",
+      title: "ProjectPulse",
+      description:
+        "Have you ever made something cool and wanted to share it? That's why we created ProjectPulse! We're a friendly place where people who love coding can share their work and meet others who build interesting things too.",
+      images: [
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729606813/atukr2veq56kanoepubg.png",
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729606856/wqd0prlx9pqhhjhpmpqc.png",
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729606907/i7zdcqqqerucdvnluc1q.png",
+      ],
+      projectUrl: "https://sprojects.live/",
+      tags: ["project showcase", "project management"],
+    },
+    {
+      _id: "6717b47213ea77ffb4f05e20",
+      title: "ideaLog",
+      description:
+        "A Node.js based blog platform focusing on simplicity and functionality.",
+      images: [
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729607342/nvjjr5uqkka4peawpgz3.png",
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729607365/sqfmph0aijacpe0jwzhy.png",
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729607445/bqvoi7fpreg0rjutdlji.png",
+      ],
+      projectUrl: "https://atakangul.com",
+      tags: [
+        "blog",
+        "nodejs",
+        "express",
+        "ejs-templates",
+        "mongo",
+        "telegram",
+        "redis",
+        "openai",
+        "pixebay",
+      ],
+    },
+    {
+      _id: "6717b47213ea77ffb4f05e25",
+      title: "ChatVerse",
+      description:
+        "Real-time topic-based chat platform built with modern web technologies, enabling users to join and participate in topic-specific chat rooms.",
+      images: [
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729609821/mq2xqo6q5akgjmlmxyuc.png",
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729609892/snp6ubye93idyr5t8zfk.png",
+        "https://res.cloudinary.com/doe1ofeco/image/upload/v1729609933/rrd1vcn60j36xgkd04fv.png",
+      ],
+      projectUrl: "https://chat.atakangul.com/",
+      tags: [
+        "javascript",
+        "nodejs",
+        "react",
+        "typescript",
+        "websocket",
+        "ssr",
+        "mvc-architecture",
+        "tailwind",
+      ],
     },
 ];

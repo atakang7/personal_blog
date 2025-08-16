@@ -5,7 +5,7 @@ import { Github } from 'lucide-react';
 export default function Header() {
   return (
     <header className="w-full sticky top-0 bg-white/80 backdrop-blur-sm border-b border-neutral-200 z-50" > 
-      <nav className="w-full max-w-8xl mx-auto h-16 px-6 flex items-center justify-between" style={{maxWidth: '1200px'}}>
+      <nav className="w-full max-w-8xl mx-auto h-16 flex items-center justify-between" style={{maxWidth: '1200px'}}>
         {/* Left side - Branding */}
         <Link href="/" className="flex flex-col">
           <h1 className="text-xl font-semibold text-neutral-900">

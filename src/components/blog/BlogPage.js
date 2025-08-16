@@ -85,7 +85,7 @@ export default function BlogPage({ router, blog }) {
           {blog.search_keywords.split(',').map((keyword, index) => (
             <span 
               key={index}
-              className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm"
+              className="py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm"
             >
               {keyword.trim()}
             </span>

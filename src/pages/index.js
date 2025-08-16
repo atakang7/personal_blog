@@ -5,22 +5,22 @@ import Head from "next/head";
 
 export default function Home({ blogs }) {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-white m-2">
+      <div className="max-w-7xl mx-auto">
         <Head>
           <title>Atakan Gül | Software Engineering Blog</title>
         </Head>
 
         {/* Navigation Section */}
-        <nav className="flex justify-start mt-3 px-2 sm:px-0">
-          <div className="flex gap-1.5 sm:gap-3 w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0">
+        <nav className="flex justify-start  mt-3 px-2 sm:px-0 ">
+          <div className="flex gap-1.5 sm:gap-3 w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0 m-2">
             {navigationLinks.map((link) => (
               <NavigationItem key={link.title} {...link} />
             ))}
           </div>
         </nav>
 
-        <div className="flex flex-col lg:flex-row gap-8 px-3">
+        <div className="flex flex-col lg:flex-row gap-5">
           {/* Blog Cards Section */}
           <section className="flex-1">
             {blogs.map((post) => (
@@ -29,7 +29,7 @@ export default function Home({ blogs }) {
           </section>
 
           {/* Sidebar */}
-          <aside className="w-full lg:w-72 mt-4">
+          <aside className="w-full lg:w-80 mt-4">
             <div className="space-y-6">
               {/* Musics */}
               <div className="border border-gray-200 ">
